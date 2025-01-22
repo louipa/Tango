@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "height": 4,
+    "width": 4,
+    "fixedCells": [
+      {
+        "state": 1,
+        "row": 0,
+        "col": 0
+      }
+    ],
+    "constraints": [
+      {
+        "row": 2,
+        "col": 2,
+        "symbol": "=",
+        "direction": "left"
+      },
+      {
+        "row": 2,
+        "col": 2,
+        "symbol": "x",
+        "direction": "top"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "height": 5,
+    "width": 5,
+    "fixedCells": [
+      {
+        "state": 1,
+        "row": 0,
+        "col": 0
+      }
+    ],
+    "constraints": [
+      {
+        "row": 0,
+        "col": 0,
+        "symbol": "=",
+        "direction": "right"
+      },
+      {
+        "row": 2,
+        "col": 2,
+        "symbol": "x",
+        "direction": "top"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "height": 6,
+    "width": 6,
+    "fixedCells": [
+      {
+        "state": 1,
+        "row": 0,
+        "col": 3
+      },
+      {
+        "state": 1,
+        "row": 0,
+        "col": 4
+      },
+      {
+        "state": 1,
+        "row": 1,
+        "col": 4
+      },
+      {
+        "state": 1,
+        "row": 2,
+        "col": 3
+      },
+      {
+        "state": 2,
+        "row": 3,
+        "col": 5
+      },
+      {
+        "state": 1,
+        "row": 4,
+        "col": 0
+      },
+      {
+        "state": 2,
+        "row": 5,
+        "col": 5
+      }
+    ],
+    "constraints": [
+      {
+        "row": 0,
+        "col": 2,
+        "symbol": "x",
+        "direction": "right"
+      },
+      {
+        "row": 1,
+        "col": 5,
+        "symbol": "=",
+        "direction": "bottom"
+      },
+      {
+        "row": 4,
+        "col": 1,
+        "symbol": "x",
+        "direction": "bottom"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "height": 6,
+    "width": 6,
+    "fixedCells": [],
+    "constraints": []
+  }
+]

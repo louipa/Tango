@@ -1,0 +1,13 @@
+body {
+  background-color: #9b89b3;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: "Roboto";
+}
