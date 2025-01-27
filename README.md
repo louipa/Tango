@@ -13,3 +13,4 @@ Link to the live site: [Tango](https://louipa.github.io/Tango/)
 - [ ] Add new puzzles !
 - [ ] Finish styling the rules section
 - [ ] Maybe highlight the errors ?
+- [ ] Fix cell image and size
