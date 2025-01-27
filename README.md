@@ -1,50 +1,15 @@
-# React + TypeScript + Vite
+# Tango !
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Do you like puzzles ? Do you like Sudoku ? Do you like KenKen ? Then you'll love Tango !
 
-Currently, two official plugins are available:
+This is a simple clone of the Linkedin game called Tango.
+This project is not affiliated with Linkedin in any way and I encourage you to check out their game on their website.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Link to the live site: [Tango](https://louipa.github.io/Tango/)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+## TODO
+- [ ] Finish the README.md
+- [ ] Add a button to empty all cells
+- [ ] Add new puzzles !
+- [ ] Finish styling the rules section
+- [ ] Maybe highlight the errors ?
