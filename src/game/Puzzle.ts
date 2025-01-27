@@ -1,4 +1,6 @@
-import { Cell, CellState, Constraint } from "./Tango";
+import { CellState } from "./Tango";
+
+import type { Cell, Constraint } from "./Tango";
 
 export interface Position {
   row: number;
@@ -18,8 +20,8 @@ class Puzzle {
   public constructor(private config: PuzzleConfiguration) {}
 
   public getGrid(): Cell[][] {
-    const grid: Cell[][] = new Array(this.config.height).fill(null).map(() =>
-      new Array(this.config.width).fill(null).map(() => ({
+    const grid: Cell[][] = Array.from({ length: this.config.height }, () =>
+      Array.from({ length: this.config.width }, () => ({
         state: CellState.EMPTY,
         fixed: false,
         error: false,

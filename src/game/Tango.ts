@@ -1,5 +1,6 @@
 import { Stack } from "stack-typescript";
-import Puzzle from "./Puzzle";
+
+import type Puzzle from "./Puzzle";
 
 export enum CellState {
   EMPTY,
@@ -45,19 +46,18 @@ class Tango {
   }
 
   public static blank(height: number, width: number) {
-    const grid: Cell[][] = new Array(height).fill(null).map(() =>
-      new Array(width).fill({
+    const grid: Cell[][] = Array.from({ length: height }, () =>
+      Array.from({ length: width }, () => ({
         state: CellState.EMPTY,
         fixed: false,
         error: false,
-      })
+      }))
     );
     return new Tango(grid);
   }
 
   public resetGame() {
     this.grid = structuredClone(this.baseGrid);
-    console.log("reset");
     this.moves = new Stack<Move>();
   }
 
@@ -84,14 +84,8 @@ class Tango {
     }
 
     for (const constraint of cell.constraints) {
-      const [posX, posY] =
-        constraint.direction === "top"
-          ? [rowIndex - 1, colIndex]
-          : constraint.direction === "right"
-            ? [rowIndex, colIndex + 1]
-            : constraint.direction === "bottom"
-              ? [rowIndex + 1, colIndex]
-              : [rowIndex, colIndex - 1];
+      const position = this.getPositionFromDirection(rowIndex, colIndex, constraint.direction);
+      const [posX, posY] = position;
 
       if (!this.isValidPosition(posX, posY)) {
         continue;
@@ -114,6 +108,16 @@ class Tango {
       }
     }
     return true;
+  }
+
+  private getPositionFromDirection(row: number, col: number, direction: "top" | "right" | "bottom" | "left"): [number, number] {
+    const positions: Record<string, [number, number]> = {
+      top: [row - 1, col],
+      right: [row, col + 1],
+      bottom: [row + 1, col],
+      left: [row, col - 1],
+    };
+    return positions[direction];
   }
 
   private isValidPosition(rowIndex: number, colIndex: number) {

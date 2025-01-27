@@ -1,5 +1,12 @@
 [
   {
+    "id": 0,
+    "height": 2,
+    "width": 2,
+    "fixedCells": [],
+    "constraints": []
+  },
+  {
     "id": 1,
     "height": 4,
     "width": 4,

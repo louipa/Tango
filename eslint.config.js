@@ -1,28 +1,118 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
+import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
+import eslintPluginReact from "eslint-plugin-react";
+import eslintPluginImport from "eslint-plugin-import";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
 
-export default tseslint.config(
-  { ignores: ["dist"] },
+export default [
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
     plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+      react: eslintPluginReact,
+      import: eslintPluginImport,
+      "@typescript-eslint": tseslint.plugin,
+      unicorn: eslintPluginUnicorn,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+      "react/prop-types": "off",
+      "react/jsx-curly-brace-presence": ["error", "never"],
+      "react/self-closing-comp": "error",
+      "react/jsx-boolean-value": ["error", "never"],
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/no-non-null-assertion": "error",
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling"],
+            "index",
+            "object",
+            "type",
+          ],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
       ],
+      "import/no-duplicates": "error",
+      "import/no-cycle": "error",
+      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "eqeqeq": "error",
+      "no-var": "error",
+      "prefer-const": "error",
+      "no-multiple-empty-lines": ["error", { "max": 1 }],
+      "arrow-body-style": ["error", "as-needed"],
+      "curly": ["error", "all"],
+      "unicorn/better-regex": "error",
+      "unicorn/catch-error-name": "error",
+      "unicorn/consistent-destructuring": "error",
+      "unicorn/custom-error-definition": "error",
+      "unicorn/error-message": "error",
+      "unicorn/escape-case": "error",
+      "unicorn/explicit-length-check": "error",
+      "unicorn/new-for-builtins": "error",
+      "unicorn/no-array-push-push": "error",
+      "unicorn/no-console-spaces": "error",
+      "unicorn/no-empty-file": "error",
+      "unicorn/no-hex-escape": "error",
+      "unicorn/no-instanceof-array": "error",
+      "unicorn/no-invalid-remove-event-listener": "error",
+      "unicorn/no-lonely-if": "error",
+      "unicorn/no-nested-ternary": "error",
+      "unicorn/no-new-array": "error",
+      "unicorn/no-null": "error",
+      "unicorn/no-object-as-default-parameter": "error",
+      "unicorn/no-static-only-class": "error",
+      "unicorn/no-unreadable-array-destructuring": "error",
+      "unicorn/no-unused-properties": "error",
+      "unicorn/no-useless-fallback-in-spread": "error",
+      "unicorn/no-useless-length-check": "error",
+      "unicorn/no-useless-spread": "error",
+      "unicorn/no-zero-fractions": "error",
+      "unicorn/prefer-array-find": "error",
+      "unicorn/prefer-array-flat": "error",
+      "unicorn/prefer-array-flat-map": "error",
+      "unicorn/prefer-array-index-of": "error",
+      "unicorn/prefer-array-some": "error",
+      "unicorn/prefer-at": "error",
+      "unicorn/prefer-date-now": "error",
+      "unicorn/prefer-default-parameters": "error",
+      "unicorn/prefer-includes": "error",
+      "unicorn/prefer-logical-operator-over-ternary": "error",
+      "unicorn/prefer-modern-dom-apis": "error",
+      "unicorn/prefer-negative-index": "error",
+      "unicorn/prefer-optional-catch-binding": "error",
+      "unicorn/prefer-prototype-methods": "error",
+      "unicorn/prefer-regexp-test": "error",
+      "unicorn/prefer-string-replace-all": "error",
+      "unicorn/prefer-string-slice": "error",
+      "unicorn/prefer-string-starts-ends-with": "error",
+      "unicorn/prefer-string-trim-start-end": "error",
+      "unicorn/prefer-ternary": "error",
+      "unicorn/prefer-type-error": "error",
+      "unicorn/throw-new-error": "error",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+      "import/resolver": {
+        node: true,
+        typescript: {
+          project: "./tsconfig.app.json"
+        }
+      },
     },
   },
-);
+];
