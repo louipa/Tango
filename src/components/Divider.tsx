@@ -1,4 +1,6 @@
-function Divider() {
+import * as React from "react";
+
+function Divider(): React.JSX.Element {
   return (
     <div style={{ display: "flex", gap: "20px", width: "100%" }}>
       <span

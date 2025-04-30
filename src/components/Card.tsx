@@ -1,9 +1,11 @@
+import * as React from "react";
+
 interface CardProps {
   children: React.ReactNode;
   style?: React.CSSProperties;
 }
 
-function Card({ style, children }: CardProps) {
+function Card({ style, children }: CardProps): React.JSX.Element {
   return (
     <div
       style={{

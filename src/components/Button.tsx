@@ -1,9 +1,11 @@
+import * as React from "react";
+
 interface ButtonProps {
   onClick: () => void;
   children: React.ReactNode;
 }
 
-function Button({ onClick, children }: ButtonProps) {
+function Button({ onClick, children }: ButtonProps): React.JSX.Element {
   return (
     <button
       onClick={onClick}

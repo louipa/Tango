@@ -1,3 +1,4 @@
+import * as React from "react";
 import { FaEquals, FaTimes } from "react-icons/fa";
 
 import { CellState, ConstraintSymbol } from "../game/Tango";
@@ -9,7 +10,7 @@ interface GridProps {
   cells: Cell[][];
 }
 
-function Grid({ cells, onCellClick }: GridProps) {
+function Grid({ cells, onCellClick }: GridProps): React.JSX.Element {
   const width = cells.length > 0 ? cells[0].length : 0;
   return (
     <div

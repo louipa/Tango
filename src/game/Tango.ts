@@ -30,7 +30,7 @@ export interface Move {
 }
 
 class Tango {
-  private baseGrid: Cell[][];
+  private readonly baseGrid: Cell[][];
   private grid: Cell[][];
   private moves = new Stack<Move>();
 
@@ -42,17 +42,6 @@ class Tango {
 
   public static fromPuzzle(puzzle: Puzzle) {
     const grid = puzzle.getGrid();
-    return new Tango(grid);
-  }
-
-  public static blank(height: number, width: number) {
-    const grid: Cell[][] = Array.from({ length: height }, () =>
-      Array.from({ length: width }, () => ({
-        state: CellState.EMPTY,
-        fixed: false,
-        error: false,
-      }))
-    );
     return new Tango(grid);
   }
 

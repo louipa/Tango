@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
 
 import _puzzles from "./assets/puzzles.json";
@@ -26,7 +26,7 @@ const confettiConfig = {
   zIndex: 100,
 };
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   // Game state
   const [grid, setGrid] = useState<Cell[][]>([]);
   const [puzzleIndex, setPuzzleIndex] = useState(0);

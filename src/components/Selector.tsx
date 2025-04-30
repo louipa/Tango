@@ -1,3 +1,5 @@
+import React from "react";
+
 import type { SyntheticEvent } from "react";
 
 interface SelectorProps {
@@ -5,7 +7,7 @@ interface SelectorProps {
   options: string[];
 }
 
-function Selector({ options, onChange }: SelectorProps) {
+function Selector({ options, onChange }: SelectorProps): React.JSX.Element {
   return (
     <select
       onChange={onChange}
